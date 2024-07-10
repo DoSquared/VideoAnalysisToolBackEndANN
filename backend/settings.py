@@ -24,28 +24,30 @@ SECRET_KEY = 'django-insecure-1li*zjo=v1wq#1mt+pla9@m^niwkkqn^qj)(uum8)h1rl$iv)c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Allow all hosts to access the application
 ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'app',
-    'rest_framework',
-    'corsheaders'
+    'django.contrib.admin',            # Admin interface
+    'django.contrib.auth',             # Authentication framework
+    'django.contrib.contenttypes',     # Content type framework
+    'django.contrib.sessions',         # Session framework
+    'django.contrib.messages',         # Messaging framework
+    'django.contrib.staticfiles',      # Static file handling
+    'app',                             # Custom app
+    'rest_framework',                  # Django REST framework
+    'corsheaders',                     # CORS headers for cross-origin requests
 ]
 
+# Allow all origins for CORS
 CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # CORS middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,8 +60,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,13 +75,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# Database
+# Database configuration
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # Use SQLite database
+        'NAME': BASE_DIR / 'db.sqlite3',        # Database file location
     }
 }
 
@@ -102,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
+# Internationalization settings
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -118,14 +119,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Additional directories for static files
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880000
+# Maximum size for data uploads
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880000  # 5 GB
